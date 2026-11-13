@@ -574,6 +574,11 @@ def main():
             reg["ultimo_motivo"] = motivo
             continue
         if ok:
+            if reg.get("falhas"):
+                # registra a sequencia interrompida (canal instavel, voltou a tocar)
+                hist = reg.setdefault("historico", [])
+                hist.append({"ate": marcas, "falhas": int(reg["falhas"])})
+                del hist[:-3]
             reg["falhas"] = 0
             reg["ultimo_ok"] = marcas
             reg["ultimo_motivo"] = motivo
