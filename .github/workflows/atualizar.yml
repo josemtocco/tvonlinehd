@@ -1,1 +1,80 @@
+name: Atualizar lista M3U (TV Online HD)
 
+on:
+  schedule:
+    # A cada 6 horas (horário UTC): 00:00, 06:00, 12:00, 18:00
+    - cron: '0 */6 * * *'
+  workflow_dispatch:      # permite rodar manualmente na aba Actions
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write         # precisa para commitar a lista atualizada
+
+concurrency:
+  group: atualizar-m3u
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar ffmpeg (usado para confirmar que o vídeo toca)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffprobe -version | head -1
+
+      - name: Gerar, testar e publicar a lista
+        run: python atualizar_m3u.py
+        env:
+          LIMITE_FALHAS: '6'
+          TIMEOUT_HTTP: '15'
+          TIMEOUT_PROBE: '25'
+          WORKERS_HTTP: '24'
+
+      - name: Guardar o log da execução
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: log-execucao
+          path: |
+            log_ultima_execucao.txt
+            relatorio.json
+          retention-days: 7
+
+      - name: Commitar a lista atualizada
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tvonlinehd.m3u tvonlinehd_completo.m3u estado_canais.json relatorio.json log_ultima_execucao.txt
+          if git diff --cached --quiet; then
+            echo "Sem alterações na lista."
+            exit 0
+          fi
+          git commit -m "Lista M3U atualizada - $(date -u '+%d/%m/%Y %H:%M UTC')"
+
+          # tenta enviar até 5 vezes (resolve corrida com outra execução)
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Enviado na tentativa $i."
+              exit 0
+            fi
+            echo "Push falhou (tentativa $i), sincronizando..."
+            sleep 5
+            git pull --rebase --autostash origin main || true
+          done
+          echo "Não foi possível enviar após 5 tentativas."
+          exit 1
