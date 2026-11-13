@@ -12,6 +12,7 @@ permissions:
   contents: write         # precisa para commitar a lista atualizada
 
 concurrency:
+  # impede duas execucoes ao mesmo tempo escrevendo no repositorio
   group: atualizar-m3u
   cancel-in-progress: false
 
@@ -57,24 +58,50 @@ jobs:
 
       - name: Commitar a lista atualizada
         run: |
+          set -e
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tvonlinehd.m3u tvonlinehd_completo.m3u estado_canais.json relatorio.json log_ultima_execucao.txt
+
+          ARQUIVOS="tvonlinehd.m3u tvonlinehd_completo.m3u estado_canais.json relatorio.json log_ultima_execucao.txt"
+
+          git add $ARQUIVOS
           if git diff --cached --quiet; then
             echo "Sem alterações na lista."
             exit 0
           fi
           git commit -m "Lista M3U atualizada - $(date -u '+%d/%m/%Y %H:%M UTC')"
 
-          # tenta enviar até 5 vezes (resolve corrida com outra execução)
+          # Tenta enviar. Se outra execucao ja publicou algo, refaz a rodada EM
+          # CIMA da versao mais nova do repositorio (nunca faz merge de JSON).
           for i in 1 2 3 4 5; do
-            if git push; then
+            if git push origin HEAD:main; then
               echo "Enviado na tentativa $i."
               exit 0
             fi
-            echo "Push falhou (tentativa $i), sincronizando..."
-            sleep 5
-            git pull --rebase --autostash origin main || true
+
+            echo "Push negado (tentativa $i). Outra execucao publicou algo."
+            # aborta qualquer merge/rebase pendente e descarta a nossa copia
+            git rebase --abort 2>/dev/null || true
+            git merge  --abort 2>/dev/null || true
+            # traz a versao publicada mais recente (fetch e obrigatorio!)
+            git fetch --prune origin main
+            git reset --hard origin/main
+            git checkout -B main origin/main
+
+            # os arquivos gerados sao SEMPRE sobrescritos pelo nosso; nada a mesclar
+            for f in $ARQUIVOS; do git checkout --force --ours "$f" 2>/dev/null || true; done
+
+            echo "Recoletando e testando sobre a versao mais recente do repositorio..."
+            python atualizar_m3u.py
+
+            git add $ARQUIVOS
+            if git diff --cached --quiet; then
+              echo "A lista gerada ja era identica a publicada. Nada a enviar."
+              exit 0
+            fi
+            git commit -m "Lista M3U atualizada - $(date -u '+%d/%m/%Y %H:%M UTC')"
+            sleep 10
           done
+
           echo "Não foi possível enviar após 5 tentativas."
           exit 1
