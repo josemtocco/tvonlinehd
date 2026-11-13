@@ -1,0 +1,184 @@
+{
+ "gerado_em": "2026-11-13T16:26:17Z",
+ "atualizacao": 1,
+ "limite_falhas": 6,
+ "catalogo_site": 580,
+ "com_link": 580,
+ "na_lista": 580,
+ "tocando": 345,
+ "em_falha": 235,
+ "removidos": 0,
+ "novos": 345,
+ "fora_do_site": 0,
+ "por_categoria": {
+  "Esportes": 68,
+  "Infantil": 37,
+  "Documentários": 22,
+  "Filmes e Séries": 102,
+  "Notícias": 28,
+  "Abertos": 102,
+  "Variedades": 221
+ },
+ "detalhes_falha": [
+  {
+   "nome": "24H Chaves",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Dragon Ball Z",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Friends",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Naruto Clássico",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Os Simpsons",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Pica Pau",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "24H Todo Mundo Odeia o Cris",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "A Fazenda 18 - 1",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "A Fazenda 18 - 2",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "A Fazenda 18 - 3",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "A Fazenda 18 - 4",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "A Fazenda 18 - 5",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "AE",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Amazon Prime",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Amazon Prime 02",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "AMC",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "AMC Séries",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Animal Planet",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Aparecida",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "TV Aparecida",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 01",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 02",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 03",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 04",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 05",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Apple TV 06",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "AXN",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Band News",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Band RJ",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Band SP",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Band Sports",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Canal GOAT",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Canal Off",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Canção Nova",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Canção Nova",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "Cartoon Network",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "Cartoonito",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "CazeTV 1",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "CazeTV 2",
+   "motivo": "HTTP 403"
+  },
+  {
+   "nome": "CazeTV 3",
+   "motivo": "HTTP 403"
+  }
+ ]
+}
