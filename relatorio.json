@@ -1,52 +1,28 @@
 {
- "gerado_em": "2026-11-13T22:58:51Z",
- "atualizacao": 6,
+ "gerado_em": "2026-11-14T03:48:53Z",
+ "atualizacao": 7,
  "limite_falhas": 6,
  "catalogo_site": 580,
  "com_link": 580,
- "na_lista": 349,
- "tocando": 341,
- "em_falha": 8,
- "removidos": 231,
+ "na_lista": 342,
+ "tocando": 340,
+ "em_falha": 2,
+ "removidos": 238,
  "novos": 0,
  "fora_do_site": 0,
  "por_categoria": {
-  "Esportes": 23,
+  "Esportes": 21,
   "Infantil": 17,
-  "Documentários": 7,
+  "Documentários": 6,
   "Filmes e Séries": 43,
   "Notícias": 20,
   "Abertos": 54,
-  "Variedades": 185
+  "Variedades": 181
  },
  "detalhes_falha": [
   {
-   "nome": "Master Chef Brasil",
-   "motivo": "https://amg00627-amg00627c9-runtime-latam-2613.playouts.now.amagi.tv/t"
-  },
-  {
-   "nome": "Tastemade Brasil",
-   "motivo": "https://amg00047-tastemade-amg00047c5-plex-us-2273.playouts.now.amagi."
-  },
-  {
-   "nome": "WILDEARTH",
-   "motivo": "https://wildearth-ono.amagi.tv/ts-us-w2-n1/playlist/amg01290-wildearth"
-  },
-  {
-   "nome": "FUEL TV Brasil",
-   "motivo": "https://amg01074-fueltv-fueltvbr-samsungbr-s1bib.amagi.tv/ts-us-w2-n2/"
-  },
-  {
-   "nome": "Barça TV",
-   "motivo": "https://amg17560-fcb-amg17560c1-rakuten-uk-4891.playouts.now.amagi.tv/"
-  },
-  {
-   "nome": "That's 90s00s ao vivo — clipes dos anos 90 e 2000",
-   "motivo": "https://amg01076-amg01076c19-rakuten-gb-8653.playouts.now.amagi.tv/ts-"
-  },
-  {
-   "nome": "Trace Brasil",
-   "motivo": "[hls @ 0x5d1a1f3642c0] URL https://amg01131-tracetv-tracebrazuca-xiaom"
+   "nome": "Rede Brasil",
+   "motivo": "HTTP 500"
   },
   {
    "nome": "RÁDIO SINES",
