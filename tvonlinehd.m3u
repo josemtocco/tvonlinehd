@@ -73,6 +73,8 @@ https://stmv1.video.brstream.com.br/retrotv/retrotv/chunklist_w1037183707.m3u8
 https://video01.brascast.com/rede1220/rede1220/playlist.m3u8?hls_ctx=ny30t6na
 #EXTINF:-1 tvg-id="sbc-kids-ao-vivo-desenhos-e-conteudo-infantil" tvg-name="SBC Kids ao vivo — desenhos e conteúdo infantil online" tvg-logo="https://televisao.tv/images/sbc-kids.webp" group-title="Infantil",SBC Kids ao vivo — desenhos e conteúdo infantil online
 https://video01.brascast.com/rede1220/rede1220/playlist.m3u8?hls_ctx=323409ok
+#EXTINF:-1 tvg-id="tv-kidmais" tvg-name="TV Kidmais" tvg-logo="https://s3minio.webativa.com.br/redeitv/logos/xGTUl2LjEPO4M9A_Le0yT8ZUN0kQth-u.png" group-title="Infantil",TV Kidmais
+https://stmv1.transmissaodigital.com/tvkidmais/tvkidmais/playlist.m3u8?hls_ctx=5k40b276
 #EXTINF:-1 tvg-id="tv-mana-2" tvg-name="TV Maná 2" tvg-logo="https://televisao.tv/images/tv-mana-2.webp" group-title="Infantil",TV Maná 2
 https://w1.manasat.com/tvmana-2/smil:tvmana-2.smil/chunklist_w1005453751_b3048000_sleng.m3u8
 #EXTINF:-1 tvg-id="canal-25" tvg-name="Canal 25" tvg-logo="https://televisao.tv/images/canal-25.webp" group-title="Documentários",Canal 25

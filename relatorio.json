@@ -1,18 +1,18 @@
 {
- "gerado_em": "2026-11-14T03:48:53Z",
- "atualizacao": 7,
+ "gerado_em": "2026-11-14T12:38:48Z",
+ "atualizacao": 8,
  "limite_falhas": 6,
  "catalogo_site": 580,
  "com_link": 580,
- "na_lista": 342,
- "tocando": 340,
- "em_falha": 2,
- "removidos": 238,
+ "na_lista": 343,
+ "tocando": 337,
+ "em_falha": 6,
+ "removidos": 237,
  "novos": 0,
  "fora_do_site": 0,
  "por_categoria": {
   "Esportes": 21,
-  "Infantil": 17,
+  "Infantil": 18,
   "Documentários": 6,
   "Filmes e Séries": 43,
   "Notícias": 20,
@@ -21,12 +21,28 @@
  },
  "detalhes_falha": [
   {
-   "nome": "Rede Brasil",
-   "motivo": "HTTP 500"
+   "nome": "TV Alpha",
+   "motivo": "HTTP 502"
+  },
+  {
+   "nome": "TV COM DF",
+   "motivo": "HTTP sem resposta"
   },
   {
    "nome": "RÁDIO SINES",
    "motivo": "https://load-balancer.azotosolutions.com/cdnedge19/smil:live19.smil/pl"
+  },
+  {
+   "nome": "REDE VIVAX TV",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "ON TV",
+   "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "TV LAGO AZUL",
+   "motivo": "HTTP 502"
   }
  ]
 }
