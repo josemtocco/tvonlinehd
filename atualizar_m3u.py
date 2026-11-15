@@ -8,11 +8,16 @@ Fonte: https://www.tvonlinehd.app.br/
 
 O site é um SPA (Vercel) e NÃO tem paginação / botão "carregar mais": a página
 inicial já entrega o catálogo completo, com todos os canais e categorias.
-Duas fontes são lidas e cruzadas a cada execução:
+A cada execução são lidas duas coisas:
 
-  1) HTML da home  -> cards de canal (nome, logo, categorias, id do player)
-  2) player.html   -> objeto JS `window.TV` com o catálogo completo:
-                      id, nome (n), logo (i), categorias (c), link (s)
+  1) HTML da home  -> cards de canal (nome, número, logo, categorias, id)
+  2) API do site   -> /api/stream?id=<id> devolve {"n": nome, "s": link .m3u8}
+                      (o link não fica mais embutido na página; é pedido
+                      canal por canal, em paralelo)
+
+Se a API parar de responder, o script ainda tenta o formato antigo
+(catálogo embutido em window.TV) antes de desistir — e, desistindo, mantém a
+lista anterior intacta em vez de publicar uma lista vazia.
 
 A categoria de cada canal é a do próprio site (chips da home).
 
@@ -44,7 +49,7 @@ import subprocess
 import sys
 import time
 import unicodedata
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote
 
 # ---------------------------------------------------------------------------
 # Configuração
@@ -52,7 +57,8 @@ from urllib.parse import urljoin, urlparse
 
 BASE = os.environ.get("TVHD_BASE", "https://www.tvonlinehd.app.br").rstrip("/")
 HOME_URL = BASE + "/"
-PLAYER_URL = BASE + "/player.html"
+PLAYER_URL = BASE + "/player"
+API_STREAM = BASE + "/api/stream"
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 ARQ_LISTA = os.path.join(RAIZ, "tvonlinehd.m3u")
@@ -64,6 +70,7 @@ TIMEOUT_HTTP = float(os.environ.get("TIMEOUT_HTTP", "15"))
 TIMEOUT_PROBE = float(os.environ.get("TIMEOUT_PROBE", "25"))
 WORKERS_HTTP = int(os.environ.get("WORKERS_HTTP", "24"))
 WORKERS_PROBE = int(os.environ.get("WORKERS_PROBE", "10"))
+WORKERS_API = int(os.environ.get("WORKERS_API", "12"))  # consultas simultaneas a API
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
@@ -212,7 +219,7 @@ def esc_m3u(s):
 
 
 # ---------------------------------------------------------------------------
-# Coleta 1: catálogo embutido no player (window.TV)
+# Coleta: home + API do site
 # ---------------------------------------------------------------------------
 
 def extrair_window_tv(html):
@@ -228,19 +235,81 @@ def extrair_window_tv(html):
     return None
 
 
-def coletar_catalogo():
-    """Lê a home (cards + chips) e o player (catálogo com os links)."""
-    log("[1/5] Baixando página inicial...")
-    home = texto(HOME_URL)
+def _links_do_window_tv(html):
+    """Modo antigo: o player trazia o catálogo inteiro em window.TV."""
+    tv = extrair_window_tv(html)
+    if not tv or not tv.get("channels"):
+        return {}
+    mapa = {}
+    for c in tv["channels"]:
+        cid = c.get("id") or c.get("e") or ""
+        link = (c.get("s") or "").strip()
+        if cid and link.startswith("http"):
+            mapa[cid] = link
+    return mapa
 
-    log("[2/5] Lendo categorias do site...")
+
+def resolver_link(cid, tentativas=3):
+    """Pergunta à API do site o endereço do stream do canal.
+
+    O site novo esconde o link atrás de /api/stream?id=<id>, que devolve
+    {"n": nome, "s": "https://....m3u8"}.
+    """
+    url = f"{API_STREAM}?id={quote(str(cid), safe='')}"
+    for i in range(tentativas):
+        status, dados, _ = http_get(url, referer=f"{BASE}/embed?id={cid}")
+        if status == 200:
+            try:
+                obj = json.loads(dados.decode("utf-8", "ignore"))
+            except Exception:
+                obj = None
+            if isinstance(obj, dict):
+                link = (obj.get("s") or obj.get("url") or obj.get("stream") or "").strip()
+                if link.startswith("http"):
+                    return link, limpar_entidades(obj.get("n") or "")
+                return "", limpar_entidades(obj.get("n") or "")
+        elif status in (0, 429, 500, 502, 503, 504):
+            time.sleep(1.2 * (i + 1))  # rede/limite: vale a pena insistir
+        else:
+            break
+    return "", ""
+
+
+def coletar_catalogo():
+    """Lê a home (cards + chips) e resolve os links pela API do site.
+
+    A home entrega nome, número, categorias e logo de todos os canais.
+    O endereço do stream é pedido canal por canal para /api/stream.
+    Se a API mudar, ainda tenta o modo antigo (window.TV no player).
+    """
+    log("[1/5] Baixando a pagina inicial...")
+    home = None
+    for tentativa in range(4):
+        try:
+            home = texto(HOME_URL)
+            break
+        except Exception as e:
+            log(f"      tentativa {tentativa + 1} falhou: {e}")
+            time.sleep(3 + 3 * tentativa)
+    if not home:
+        raise RuntimeError(
+            "Nao foi possivel baixar a pagina inicial do site depois de 4 tentativas. "
+            "Confira a conexao (ou rode novamente mais tarde)."
+        )
+
+    log("[2/5] Lendo as categorias do site...")
     categorias = {}
-    for cid, nome in re.findall(
-        r'data-cat="(\d+)"[^>]*>([^<]*)</button>', home
-    ):
+    for cid, nome in re.findall(r'data-cat="(\d+)"[^>]*>([^<]*)</button>', home):
         n = normalizar_categoria(nome)
         if n:
             categorias[int(cid)] = n
+    if not categorias:
+        for cid, nome in re.findall(
+            r'data-cat="(\d+)"[^>]*>\s*([^<]{2,40})\s*<', home
+        ):
+            n = normalizar_categoria(nome)
+            if n:
+                categorias[int(cid)] = n
     log(f"      categorias encontradas: {', '.join(categorias.values()) or '(nenhuma)'}")
 
     cards = {}
@@ -254,54 +323,85 @@ def coletar_catalogo():
         cid = attrs.get("id", "")
         if not cid:
             continue
-        nome = attrs.get("name", "")
-        num = attrs.get("num", "")
         cats = attrs.get("cats", "")
         logo = re.search(r'<img[^>]*src="([^"]+)"', bloco)
-        link = re.search(r'href="([^"]*player\.html[^"]*)"', bloco)
+        link = re.search(r'href="([^"]*player[^"]*)"', bloco)
+        num = attrs.get("num", "")
         cards[cid] = {
             "id": cid,
-            "nome": limpar_entidades(nome),
+            "nome": limpar_entidades(attrs.get("name", "")) or cid,
             "num": num,
             "cats": [int(x) for x in cats.split(",") if x.strip().isdigit()],
             "logo": urljoin(HOME_URL, limpar_entidades(logo.group(1))) if logo else "",
-            "player": urljoin(HOME_URL, limpar_entidades(link.group(1))) if link else "",
-            "iframe": 'data-iframe="1"' in bloco,
+            "player": urljoin(HOME_URL, limpar_entidades(link.group(1)))
+            if link
+            else f"{BASE}/player?id={cid}",
         }
     log(f"      cards de canal na home: {len(cards)}")
+    if not cards:
+        raise RuntimeError(
+            "A pagina inicial abriu, mas nenhum canal foi reconhecido "
+            "(o site pode ter mudado de novo). Nada foi alterado na lista."
+        )
 
-    log("[3/5] Abrindo pagina do player para pegar os links de transmissao...")
-    player_html = texto(PLAYER_URL)
-    tv = extrair_window_tv(player_html)
-    if not tv or "channels" not in tv:
-        raise RuntimeError("Catálogo não encontrado no player (window.TV ausente).")
+    log("[3/5] Pedindo os links de transmissao de cada canal...")
+    links, nomes_api = {}, {}
+    fila = list(cards.keys())
 
-    # categorias também podem vir do catálogo (fallback / complemento)
-    for c in tv.get("categories") or []:
-        nome = normalizar_categoria(c.get("name"))
-        if nome:
-            categorias.setdefault(int(c.get("id")), nome)
+    # 1o caminho: modo antigo, caso o player ainda entregue tudo de uma vez.
+    antigos = {}
+    for purl in (f"{BASE}/player", PLAYER_URL, f"{BASE}/embed"):
+        try:
+            antigos = _links_do_window_tv(texto(purl))
+        except Exception:
+            antigos = {}
+        if antigos:
+            log(f"      catalogo antigo disponivel em {urlparse(purl).path}: {len(antigos)} links")
+            break
+
+    if antigos:
+        for cid in fila:
+            if cid in antigos:
+                links[cid] = antigos[cid]
+        fila = [c for c in fila if c not in links]
+        log(f"      resolvidos pelo modo antigo: {len(links)}")
+
+    # 2o caminho: API /api/stream canal por canal (com varios em paralelo).
+    if fila:
+        feito = [0]
+        total = len(fila)
+
+        def tarefa(cid):
+            link, nome = resolver_link(cid)
+            feito[0] += 1
+            if feito[0] % 100 == 0 or feito[0] == total:
+                log(f"      {feito[0]}/{total} consultados...")
+            return cid, link, nome
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS_API) as ex:
+            for cid, link, nome in ex.map(tarefa, fila):
+                if link:
+                    links[cid] = link
+                if nome:
+                    nomes_api[cid] = nome
+
+    log(f"      canais com link resolvido: {len(links)} de {len(cards)}")
 
     canais = []
-    vistos_link = set()
-    for c in tv["channels"]:
-        cid = c.get("id") or ""
-        card = cards.get(cid, {})
-        link = (c.get("s") or "").strip()
-        nome = limpar_entidades(c.get("n") or card.get("nome") or cid)
-        if not nome:
-            continue
-        ids_cat = [i for i in (c.get("c") or card.get("cats") or []) if int(i) in categorias]
+    for cid, card in cards.items():
+        link = links.get(cid, "")
+        nome = card["nome"] or nomes_api.get(cid, "") or cid
+        ids_cat = [i for i in card["cats"] if i in categorias]
+        if not ids_cat:
+            ids_cat = []  # canal sem categoria no site -> fica em "Outros"
         nomes_cat = []
         for i in ids_cat:
-            n = categorias.get(int(i))
+            n = categorias.get(i)
             if n and n not in nomes_cat:
                 nomes_cat.append(n)
-        logo = c.get("i") or card.get("logo") or ""
-        if logo:
-            logo = urljoin(HOME_URL, limpar_entidades(logo))
+        logo = card["logo"]
         if re.search(r"/(logo\.png)$", urlparse(logo).path or ""):
-            logo = ""  # logo genérica do site não ajuda no SS IPTV
+            logo = ""  # logo generica do site nao ajuda no SS IPTV
         canais.append(
             {
                 "id": cid,
@@ -309,35 +409,25 @@ def coletar_catalogo():
                 "logo": logo,
                 "link": link,
                 "categorias": nomes_cat,
-                "player": card.get("player") or f"{PLAYER_URL}?id={c.get('e','')}",
-                "num": card.get("num") or "",
+                "player": card["player"],
+                "num": card["num"],
                 "ordem_cat": ids_cat,
             }
         )
-        if link:
-            vistos_link.add(link)
 
-    # canais que existem na home mas não estão no catálogo do player (raro)
-    for cid, card in cards.items():
-        if cid in {c["id"] for c in canais}:
-            continue
-        nomes_cat = [categorias[i] for i in card["cats"] if i in categorias]
-        canais.append(
-            {
-                "id": cid,
-                "nome": card["nome"],
-                "logo": "" if card["logo"].endswith("/logo.png") else card["logo"],
-                "link": "",
-                "categorias": nomes_cat,
-                "player": card["player"],
-                "num": card["num"],
-                "ordem_cat": card["cats"],
-            }
+    # ordena pela numeracao do site quando existir
+    def chave(c):
+        n = (c.get("num") or "").strip()
+        return (0, int(n)) if n.isdigit() else (1, 0)
+
+    canais.sort(key=chave)
+    log(f"      canais no catalogo: {len(canais)}")
+    log(f"      canais com link direto .m3u8: {sum(1 for c in canais if c['link'])}")
+    if not any(c["link"] for c in canais):
+        raise RuntimeError(
+            "Nenhum link de transmissao foi obtido (a API do site nao respondeu). "
+            "A lista anterior foi preservada."
         )
-
-    log(f"      canais no catálogo: {len(canais)}")
-    com_link = sum(1 for c in canais if c["link"])
-    log(f"      canais com link direto .m3u8: {com_link}")
     return canais, categorias
 
 
