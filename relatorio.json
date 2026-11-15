@@ -1,13 +1,13 @@
 {
- "gerado_em": "2026-11-15T13:03:55Z",
- "atualizacao": 12,
+ "gerado_em": "2026-11-15T22:12:51Z",
+ "atualizacao": 13,
  "limite_falhas": 6,
  "catalogo_site": 580,
  "com_link": 580,
- "na_lista": 343,
- "tocando": 331,
- "em_falha": 12,
- "removidos": 237,
+ "na_lista": 341,
+ "tocando": 328,
+ "em_falha": 13,
+ "removidos": 239,
  "novos": 0,
  "fora_do_site": 0,
  "por_categoria": {
@@ -17,9 +17,13 @@
   "Filmes e Séries": 43,
   "Notícias": 20,
   "Abertos": 54,
-  "Variedades": 181
+  "Variedades": 179
  },
  "detalhes_falha": [
+  {
+   "nome": "tv pantanal ms",
+   "motivo": "HTTP 404"
+  },
   {
    "nome": "canal 25",
    "motivo": "HTTP 404"
@@ -27,6 +31,10 @@
   {
    "nome": "canal goat",
    "motivo": "HTTP sem resposta"
+  },
+  {
+   "nome": "tv gideões",
+   "motivo": "HTTP 404"
   },
   {
    "nome": "tv jovem pan news ao vivo",
@@ -37,8 +45,8 @@
    "motivo": "HTTP 403"
   },
   {
-   "nome": "tv com df",
-   "motivo": "HTTP sem resposta"
+   "nome": "ia channel",
+   "motivo": "não é manifesto HLS"
   },
   {
    "nome": "tv tudo",
@@ -46,14 +54,10 @@
   },
   {
    "nome": "rede vivax tv",
-   "motivo": "https://video11.logicahost.com.br/redevivaxtv/redevivaxtv/playlist.m3u"
-  },
-  {
-   "nome": "rede gospel",
    "motivo": "HTTP sem resposta"
   },
   {
-   "nome": "on tv",
+   "nome": "rede gospel",
    "motivo": "HTTP sem resposta"
   },
   {

@@ -417,8 +417,6 @@ https://5790d294af2dc.streamlock.net/Nexxo/Nexxo/playlist.m3u8
 https://stmv8.samcast.com.br/novatvi2098/novatvi2098/playlist.m3u8
 #EXTINF:-1 tvg-id="on-fm" tvg-name="on fm" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_348_1773028673.png" group-title="Variedades",on fm
 https://5ce9406b73c33.streamlock.net/ONFM/livestream/playlist.m3u8
-#EXTINF:-1 tvg-id="on-tv" tvg-name="on tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_342_1773028327.png" group-title="Variedades",on tv
-https://ikki.hubcloud.tv.br/OnTV/index.m3u8
 #EXTINF:-1 tvg-id="ortv-web-filmes-e-variedades-culturais" tvg-name="ortv web filmes e variedades culturais" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_421_1792698151.png" group-title="Variedades",ortv web filmes e variedades culturais
 https://tv.ortv.com.br/hls/stream.m3u8
 #EXTINF:-1 tvg-id="pitufo-tv" tvg-name="pitufo tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_346_1773028632.png" group-title="Variedades",pitufo tv
@@ -523,8 +521,6 @@ https://stmv7.voxtvhd.com.br/pralan/pralan/playlist.m3u8
 https://cdn.live.br1.jmvstream.com/webtv/ifulrbjz/playlist/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-cnu" tvg-name="tv cnu" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767823224.png" group-title="Variedades",tv cnu
 https://br5093.streamingdevideo.com.br/wbgpymgwys/wbgpymgwys/playlist.m3u8
-#EXTINF:-1 tvg-id="tv-com-df" tvg-name="tv com df" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767822920.png" group-title="Variedades",tv com df
-https://5b7f3c45ab7c2.streamlock.net/8008/8008/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-conectados" tvg-name="tv conectados" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_78_1781317778.png" group-title="Variedades",tv conectados
 https://stmv4.voxtvhd.com.br/tvconectados/tvconectados/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-conexao-celestial" tvg-name="tv conexão celestial" tvg-logo="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidohTn2DEtOxBacEc6RK6WD9EEI32UUrTl8T9XgZ-HKCBg5OCjhknKLkpvVWF_upbQAcdjevZyHfs1ZNyqn14mq62qrc_9WEcaO_-tsnyp5IeAiBtaij37XqKhrIr1FnNKBmWEDr4yHJOZmAgyhsYmro3iRWCg0_OWsFeTyTHLwNGXjaXeNCjkrVNHNHs/w200-h100/TV%20CONEX%C3%83O%20CELESTIAL.webp" group-title="Variedades",tv conexão celestial
