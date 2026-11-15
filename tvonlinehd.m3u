@@ -375,6 +375,8 @@ https://stmv1.srvif.com/gospelf/gospelf/playlist.m3u8
 https://video11.logicahost.com.br/gramadotv/gramadotv/playlist.m3u8
 #EXTINF:-1 tvg-id="grjngo-faroeste" tvg-name="grjngo faroeste 24 hs" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/711f80cb-9ad6-4ea7-b980-8f16cd69a6e6/grjngo_150x150.jpg" group-title="Variedades",grjngo faroeste 24 hs
 https://amogonetworx-grjngo-1-eu.plex.wurl.tv/4300.m3u8
+#EXTINF:-1 tvg-id="hip-hop-vai-alem-tv" tvg-name="hip-hop vai alem  tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_480_1788032465.png" group-title="Variedades",hip-hop vai alem  tv
+https://stmv4.voxtvhd.com.br/carlosdavi6787/carlosdavi6787/playlist.m3u8
 #EXTINF:-1 tvg-id="ia-channel" tvg-name="ia channel" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_60_1781318637.png" group-title="Variedades",ia channel
 https://iachannel.nuvemplay.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="igreja-mundial" tvg-name="igreja mundial" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_66_1767831114.jpg" group-title="Variedades",igreja mundial
