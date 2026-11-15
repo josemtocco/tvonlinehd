@@ -1,12 +1,12 @@
 {
- "gerado_em": "2026-11-15T03:29:16Z",
- "atualizacao": 11,
+ "gerado_em": "2026-11-15T13:03:55Z",
+ "atualizacao": 12,
  "limite_falhas": 6,
  "catalogo_site": 580,
  "com_link": 580,
  "na_lista": 343,
- "tocando": 329,
- "em_falha": 14,
+ "tocando": 331,
+ "em_falha": 12,
  "removidos": 237,
  "novos": 0,
  "fora_do_site": 0,
@@ -21,8 +21,8 @@
  },
  "detalhes_falha": [
   {
-   "nome": "tvm internacional ao vivo — televisão pública moçambicana",
-   "motivo": "HTTP sem resposta"
+   "nome": "canal 25",
+   "motivo": "HTTP 404"
   },
   {
    "nome": "canal goat",
@@ -41,24 +41,16 @@
    "motivo": "HTTP sem resposta"
   },
   {
-   "nome": "ia channel",
-   "motivo": "não é manifesto HLS"
-  },
-  {
-   "nome": "uma tv",
-   "motivo": "HTTP 500"
-  },
-  {
    "nome": "tv tudo",
    "motivo": "HTTP 404"
   },
   {
-   "nome": "rede gospel",
-   "motivo": "HTTP sem resposta"
+   "nome": "rede vivax tv",
+   "motivo": "https://video11.logicahost.com.br/redevivaxtv/redevivaxtv/playlist.m3u"
   },
   {
-   "nome": "tv ourinhos",
-   "motivo": "HTTP 404"
+   "nome": "rede gospel",
+   "motivo": "HTTP sem resposta"
   },
   {
    "nome": "on tv",
