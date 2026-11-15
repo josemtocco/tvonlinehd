@@ -431,8 +431,6 @@ https://5790d294af2dc.streamlock.net/pulsovision/pulsovision/playlist.m3u8
 https://srv4.zcast.com.br/flavio2481/flavio2481/playlist.m3u8
 #EXTINF:-1 tvg-id="radio-peniel-web-e-tv" tvg-name="rádio peniel web e tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_425_1788031613.png" group-title="Variedades",rádio peniel web e tv
 https://stmv4.voxtvhd.com.br/radioetvpenielweb/radioetvpenielweb/playlist.m3u8
-#EXTINF:-1 tvg-id="radio-sines" tvg-name="rádio sines" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_354_1773029113.png" group-title="Variedades",rádio sines
-https://load-balancer.azotosolutions.com/cdnedge19/smil:live19.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="radio-tv-brasil-sinop" tvg-name="radio tv brasil sinop" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_331_1792419204.png" group-title="Variedades",radio tv brasil sinop
 https://stmv7.voxtvhd.com.br/tvbrasilsinop/tvbrasilsinop/playlist.m3u8
 #EXTINF:-1 tvg-id="rede-alfa-ao-vivo" tvg-name="rede alfa ao vivo" tvg-logo="https://televisao.tv/images/rede-alfa.webp" group-title="Variedades",rede alfa ao vivo
