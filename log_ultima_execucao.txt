@@ -1,5 +1,5 @@
 ======================================================================
- TV Online HD -> M3U  |  16/11/2026 03:28:11
+ TV Online HD -> M3U  |  16/11/2026 14:07:32
 ======================================================================
 [1/5] Baixando a pagina inicial...
 [2/5] Lendo as categorias do site...
@@ -12,66 +12,58 @@
       400/580 consultados...
       500/580 consultados...
       580/580 consultados...
-      canais com link resolvido: 580 de 580
+      canais com link resolvido: 174 de 580
       canais no catalogo: 580
-      canais com link direto .m3u8: 580
+      canais com link direto .m3u8: 174
 
-[4/5] Validando transmissões (atualizacao #14)...
+[4/5] Validando transmissões (atualizacao #15)...
       ffprobe disponível: sim
-      50/580 testados (0s)
-      100/580 testados (0s)
-      150/580 testados (0s)
-      200/580 testados (1s)
-      250/580 testados (7s)
-      300/580 testados (11s)
-      350/580 testados (15s)
-      400/580 testados (19s)
-      450/580 testados (25s)
-      500/580 testados (30s)
-      550/580 testados (34s)
-      580/580 testados (45s)
+      50/174 testados (1s)
+      100/174 testados (6s)
+      150/174 testados (11s)
+      174/174 testados (24s)
 
 [5/5] Lista gerada
 ----------------------------------------------------------------------
 Canais no site .............: 580
-Com link direto ...........: 580
-TOCANDO (na lista) ........: 332
-Em falha (mantidos) .......: 3  (removidos após 6 falhas)
-Removidos nesta rodada ....: 245
+Com link direto ...........: 174
+TOCANDO (na lista) ........: 111
+Em falha (mantidos) .......: 2  (removidos após 6 falhas)
+Removidos nesta rodada ....: 61
 Novos canais ..............: 0
 Fora do site (limpo) ......: 0
-Total na lista ............: 335 canais
+Total na lista ............: 113 canais
 ----------------------------------------------------------------------
 Canais por categoria:
-   Esportes               20
-   Infantil               18
-   Documentários           6
-   Filmes e Séries        43
-   Notícias               19
-   Abertos                54
-   Variedades            175
+   Esportes                8
+   Infantil                3
+   Documentários           2
+   Filmes e Séries        13
+   Notícias                6
+   Abertos                16
+   Variedades             65
 ----------------------------------------------------------------------
 Removidos após 6 falhas:
-   - 24h chaves
-   - 24h dragon ball z
-   - 24h friends
-   - 24h naruto clássico
-   - 24h os simpsons
-   - 24h pica pau
-   - 24h todo mundo odeia o cris
    - a fazenda 18 - 1
-   - a fazenda 18 - 2
-   - a fazenda 18 - 3
    - a fazenda 18 - 4
-   - a fazenda 18 - 5
-   - ae
-   - amazon prime
-   - amazon prime 02
-   - amc
-   - amc séries
    - animal planet
-   - aparecida
-   - tv aparecida
+   - apple tv 06
+   - band news
+   - band sports
+   - canção nova
+   - cazétv
+   - cazétv 4
+   - cnn brasil
+   - cultura
+   - discovery id
+   - discovery world
+   - disney plus 1
+   - espn 6
+   - globo ce
+   - globo df
+   - globo espírito santo
+   - globo porto alegre
+   - globo rio
 ----------------------------------------------------------------------
-Arquivo: tvonlinehd.m3u  (335 canais)
-Tempo total: 51s
+Arquivo: tvonlinehd.m3u  (113 canais)
+Tempo total: 53s
