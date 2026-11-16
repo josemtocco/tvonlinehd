@@ -1,6 +1,4 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="canal-goat" tvg-name="canal goat" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/4c0e9073-abd6-4138-8984-6906a6282030/canal-goat.png" group-title="Esportes",canal goat
-https://d1-ywppjexvlyulasvmgzjdftfjikth2210oq80soveui6lkbi2iza2zf.cdn10embed.xyz/canalgoat/index.m3u8
 #EXTINF:-1 tvg-id="caze-tv" tvg-name="cazétv" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/31d4b44d-27ef-4d31-8418-818bade76916/caze-tv.jpg" group-title="Esportes",cazétv
 https://amg01391-amg01391c10-tcl-br-9630.playouts.now.amagi.tv/1080p-cc/index.m3u8
 #EXTINF:-1 tvg-id="drive-channel-tv" tvg-name="drive channel tv" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/f80a9ad4-4f12-4db8-b526-e9530dc8f476/drive-channel-tv.png" group-title="Esportes",drive channel tv
@@ -205,8 +203,6 @@ https://video07.logicahost.com.br/rsnews01/rsnews01/playlist.m3u8
 https://sbtnews.maissbt.com/3.m3u8
 #EXTINF:-1 tvg-id="tv-cnb" tvg-name="tv cnb news" tvg-logo="https://televisao.tv/images/tv-cnb.webp" group-title="Notícias",tv cnb news
 https://5cf4a2c2512a2.streamlock.net/tvcnb/tvcnb/chunklist_w2052209439.m3u8
-#EXTINF:-1 tvg-id="jovem-pan-news" tvg-name="tv jovem pan news ao vivo" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/9f0164ff-89a8-4364-a2c4-49ba6bd711ff/jovem_pan_news_150x150.png" group-title="Notícias",tv jovem pan news ao vivo
-https://d3-ywppjexvlyulasvmgzjdftfjikth2210oq80soveui6lkbi2iza2zf.cdn10embed.xyz/jovempannews/index.m3u8
 #EXTINF:-1 tvg-id="tv-noticias-agricolas" tvg-name="tv notícias agrícolas" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767822620.png" group-title="Notícias",tv notícias agrícolas
 https://video09.logicahost.com.br/tvnoticiasagricolas/tvnoticiasagricolas/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-noticias-minas" tvg-name="tv notícias minas" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_338_1773027944.png" group-title="Notícias",tv notícias minas
@@ -323,8 +319,6 @@ https://stmv1.voxtvhd.com.br/4430/4430/playlist.m3u8
 https://stmv1.samcast.com.br/voxtv/voxtv/playlist.m3u8
 #EXTINF:-1 tvg-id="yeeaah" tvg-name="yeeaah" tvg-logo="https://s3minio.webativa.com.br/redeitv/yeeaah.png" group-title="Abertos",yeeaah
 https://srv5.zcast.com.br/yeeaah/yeeaah/playlist.m3u8
-#EXTINF:-1 tvg-id="24-horas-tv" tvg-name="24 horas tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_404_1777348389.png" group-title="Variedades",24 horas tv
-https://stmv8.samcast.com.br/newswire7636/newswire7636/playlist.m3u8
 #EXTINF:-1 tvg-id="40gtv-ao-vivo" tvg-name="40gtv ao vivo" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_67_1781318315.png" group-title="Variedades",40gtv ao vivo
 https://40gtv-aovivo.nuvemplay.live/hls/stream.m3u8
 #EXTINF:-1 tvg-id="ag-tv" tvg-name="ag tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_373_1775488289.png" group-title="Variedades",ag tv
@@ -429,14 +423,14 @@ https://5790d294af2dc.streamlock.net/pulsovision/pulsovision/playlist.m3u8
 https://srv4.zcast.com.br/flavio2481/flavio2481/playlist.m3u8
 #EXTINF:-1 tvg-id="radio-peniel-web-e-tv" tvg-name="rádio peniel web e tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_425_1788031613.png" group-title="Variedades",rádio peniel web e tv
 https://stmv4.voxtvhd.com.br/radioetvpenielweb/radioetvpenielweb/playlist.m3u8
+#EXTINF:-1 tvg-id="radio-sines" tvg-name="rádio sines" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_354_1773029113.png" group-title="Variedades",rádio sines
+https://load-balancer.azotosolutions.com/cdnedge19/smil:live19.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="radio-tv-brasil-sinop" tvg-name="radio tv brasil sinop" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_331_1792419204.png" group-title="Variedades",radio tv brasil sinop
 https://stmv7.voxtvhd.com.br/tvbrasilsinop/tvbrasilsinop/playlist.m3u8
 #EXTINF:-1 tvg-id="rede-alfa-ao-vivo" tvg-name="rede alfa ao vivo" tvg-logo="https://televisao.tv/images/rede-alfa.webp" group-title="Variedades",rede alfa ao vivo
 https://stmv1.voxtvhd.com.br/7070/7070/playlist.m3u8
 #EXTINF:-1 tvg-id="rede-estacao-amparo" tvg-name="rede estação amparo" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_423_1779759863.png" group-title="Variedades",rede estação amparo
 https://stmv7.samcast.com.br/paulo8649/paulo8649/playlist.m3u8
-#EXTINF:-1 tvg-id="rede-gospel" tvg-name="rede gospel" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_65_1781318405.png" group-title="Variedades",rede gospel
-https://d3-ywppjexvlyulasvmgzjdftfjikth2210oq80soveui6lkbi2iza2zf.cdn10embed.xyz/redegospel/index.m3u8
 #EXTINF:-1 tvg-id="redeplenitude" tvg-name="rede plenitude" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/c30ff05d-ac2f-423b-8ded-7addfdf27110/igreja_plenitude_do_trono_de_deus_150x150.jpg" group-title="Variedades",rede plenitude
 https://strv.painelvox.top/plenitude/plenitude/chunklist_w1853401077.m3u8
 #EXTINF:-1 tvg-id="rede-sdp-tv" tvg-name="rede sdp tv" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_105_1767830368.png" group-title="Variedades",rede sdp tv
@@ -585,8 +579,6 @@ https://video01.brascast.com/sergio7305/sergio7305/playlist.m3u8
 https://cdn-fundacao-2110.ciclano.io:1443/fundacao-2110/fundacao-2110/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-metropole-cariri" tvg-name="tv metropole cariri" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_102_1776977262.png" group-title="Variedades",tv metropole cariri
 https://stmv.jnbhost.com.br/tvmetropolecariri/tvmetropolecariri/playlist.m3u8
-#EXTINF:-1 tvg-id="tv-metropoles" tvg-name="tv metropoles" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_328_1777280982.jpg" group-title="Variedades",tv metropoles
-https://stmv8.samcast.com.br/newswire4876/newswire4876/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-metropolitana-rio" tvg-name="tv metropolitana rio" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_463_1783204313.jpg" group-title="Variedades",tv metropolitana rio
 https://stmv5.samcast.com.br/claudio8701/claudio8701/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-mil-aleluia" tvg-name="tv mil aleluia" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_444_1781315850.png" group-title="Variedades",tv mil aleluia
@@ -603,8 +595,6 @@ https://video08.logicahost.com.br/tvolhodagua/tvolhodagua/playlist.m3u8
 https://stmv2.srvif.com/tvomindare/tvomindare/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-ourinhos" tvg-name="tv ourinhos" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767822191.png" group-title="Variedades",tv ourinhos
 https://video01.logicahost.com.br/tvcourinhos/tvcourinhos/playlist.m3u8
-#EXTINF:-1 tvg-id="tv-pai-eterno" tvg-name="tv pai eterno" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767822713.png" group-title="Variedades",tv pai eterno
-https://tody.s25-cloudfront-net.lat/tody/tvpaieterno.m3u8
 #EXTINF:-1 tvg-id="tv-paradise" tvg-name="tv paradise" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767823438.png" group-title="Variedades",tv paradise
 https://stmv5.samcast.com.br/marcos3057/marcos3057/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-planalto" tvg-name="tv planalto" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_admin_106_1767831555.png" group-title="Variedades",tv planalto
@@ -633,8 +623,6 @@ https://video01.brascast.com/xavier4499/xavier4499/playlist.m3u8?hls_ctx=8vx8c42
 https://stmv6.voxtvhd.com.br/22240/22240/playlist.m3u8
 #EXTINF:-1 tvg-id="tvtemplosalomao" tvg-name="tv templo de salomão" tvg-logo="https://www.ketv.com.br/__l5e/assets-v1/f915ee34-1b3a-4925-858d-a531deb39780/tv_templo_de_salomao_150x150.jpeg" group-title="Variedades",tv templo de salomão
 https://644398c.ha.azioncdn.net/primary/tvtemplo_480p.sdp/chunklist_f10cf743-f8d2-4b80-a665-d0dd319ef176.m3u8
-#EXTINF:-1 tvg-id="tv-tudo" tvg-name="tv tudo" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_18_1767791728.png" group-title="Variedades",tv tudo
-https://tv02.zas.media:1936/tvtudo/tvtudo/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-vive" tvg-name="tv vive" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_386_1780087982.jpg" group-title="Variedades",tv vive
 https://stmv1.voxtvhd.com.br/14650/14650/playlist.m3u8
 #EXTINF:-1 tvg-id="tv-vr-gospel" tvg-name="tv vr gospel" tvg-logo="https://clubecanais.com.br/uploads/logos/logo_406_1781444487.jpg" group-title="Variedades",tv vr gospel
