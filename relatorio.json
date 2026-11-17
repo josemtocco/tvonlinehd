@@ -1,32 +1,35 @@
 {
- "gerado_em": "2026-11-16T14:08:25Z",
- "atualizacao": 15,
+ "gerado_em": "2026-11-17T01:14:07Z",
+ "atualizacao": 16,
  "limite_falhas": 6,
  "catalogo_site": 580,
- "com_link": 174,
- "na_lista": 113,
- "tocando": 111,
- "em_falha": 2,
- "removidos": 61,
+ "com_link": 334,
+ "na_lista": 219,
+ "tocando": 216,
+ "em_falha": 3,
+ "removidos": 115,
  "novos": 0,
  "fora_do_site": 0,
  "por_categoria": {
-  "Esportes": 8,
-  "Infantil": 3,
-  "Documentários": 2,
-  "Filmes e Séries": 13,
-  "Notícias": 6,
-  "Abertos": 16,
-  "Variedades": 65
+  "Esportes": 15,
+  "Infantil": 16,
+  "Filmes e Séries": 35,
+  "Notícias": 17,
+  "Abertos": 25,
+  "Variedades": 111
  },
  "detalhes_falha": [
   {
-   "nome": "rede super",
-   "motivo": "HTTP 404"
+   "nome": "ia channel",
+   "motivo": "não é manifesto HLS"
   },
   {
-   "nome": "hip-hop vai alem  tv",
-   "motivo": "HTTP 403"
+   "nome": "braziliantimes",
+   "motivo": "HTTP 500"
+  },
+  {
+   "nome": "rádio sines",
+   "motivo": "https://load-balancer.azotosolutions.com/cdnedge19/smil:live19.smil/pl"
   }
  ]
 }
